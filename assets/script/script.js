@@ -9,6 +9,8 @@ var PORT = 3000;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+app.use(express.static(path.join(__dirname, '../../assets')));
+
 app.get("/", function(req, res) {
   res.sendFile(path.join(__dirname, "../../home.html"));
 });
@@ -25,10 +27,10 @@ app.get("/api/tables", function(req, res) {
   return res.json(tableData);
 });
 
-// Displays all table reservations
-app.get("/tables", function(req, res) {
-  return res.json(characters);
-});
+
+
+
+
 
 // Displays a single character, or returns false
 app.get("/api/characters/:character", function(req, res) {
